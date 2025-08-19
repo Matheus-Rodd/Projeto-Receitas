@@ -5,32 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minhas Receitas</title>
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Esta tag serve para importar o Tailwind CSS na sua página web de forma rápida e prática, direto via CDN (Content Delivery Network). -->
-    
-    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script> <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style> 
         body {
             font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900"> <!--Este comando HTML e CSS significa que a página terá um fundo cinza claro e texto cinza escuro.-->
-    <!-- Cabeçalho da Página -->
-    <header class="bg-gray-900 text-white p-6 shadow-lg rounded-b-lg">
-        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center"> <!-- Alterado para 'justify-center' para centralizar o conteúdo -->
-            <!-- Agrupamento para o Ícone e Título (Centralizado) -->
-            <div class="flex items-center mb-4 sm:mb-0">
+<body class="bg-gray-100 text-gray-900"> <header class="bg-gray-900 text-white p-6 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-center"> <div class="flex items-center mb-4 sm:mb-0">
                 <div class="text-4xl mr-4">
-                    <i class="fas fa-pepper-hot"></i> <!-- Ícone de utensílios (faca e garfo) -->
-                </div>
-                <!-- Título da Página -->
+                    <i class="fas fa-pepper-hot"></i> </div>
                 <h1 class="text-4xl font-bold text-center sm:text-left">
                     Sabores da Casa
                 </h1>
             </div>
             <nav class="mt-4 sm:mt-0">
-                <!-- Conteúdo de navegação futuro aqui -->
-            </nav>
+                </nav>
         </div>
     </header>
     <section class="container mx-auto mt-8 p-4 flex justify-center">
@@ -44,12 +35,7 @@
             </button>
         </div>
     </section>
-    <!-- END: Seção de Pesquisa Adicionada-->
-
-    <!-- START: Conteúdo Principal da Página com Containers de Receitas-->
-
-       <!-- Conteúdo Principal da Página-->
-<main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
+    <main class="container mx-auto p-6 mt-8 bg-white rounded-lg shadow-md">
     <h2 class="text-2xl font-semibold mb-4"> 🍽️ Bem-vindo ao Sabores da Casa!</h2>
     <p class="text-lg text-gray-700"> Aqui você encontra receitas práticas, deliciosas e para todos os gostos! Seja você um cozinheiro de primeira viagem ou um chef experiente, temos opções para o dia a dia e também para ocasiões especiais. Explore, experimente e descubra o prazer de cozinhar com a gente!.</p>
     <p class="mt-4 text-gray-600">"Do nosso fogão para o seu coração."</p>
@@ -57,53 +43,45 @@
 
     <main class="container mx-auto p-6 mt-8 bh-white rounded-lg shadow-md">
 
-        <!-- Título da seção de receitas -->
         <h2 class="text-2xl font-semibold mb-6 text-center">Nossas Últimas Receitas</h2>
-        <!--Container Flexível para as receitas-->
         <div class="flex flex-wrap justify-center gap-6">
-           <!-- Receita 1 -->
-            <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33,333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <img src="{% static 'receitas/img/limonada.jpg' %}" alt="[Imagem de Limonada com Hortelã]" class="w-full h-48 object-cover rounded-md mb-4">    
+           <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33,333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                <img src="{% static 'receitas/img/limonada.jpg' %}" alt="[Imagem de Limonada com Hortelã]" class="w-full h-64 object-cover rounded-md mb-4">    
                 <h3 class="text-xl font-bold mb-2 text-gray-800">Limonada com Hortelã 🍋🌿🥤</h3> 
                 <p class="text-gray-600 mb-4">Refrescante e cheia de sabor, essa limonada com toque de hortelã é perfeita para dias quentes. Equilibra acidez, frescor e leveza — ideal para acompanhar refeições ou ser servida sozinha.</p>
                 <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
             </div>
 
-            <!-- Receita 2 -->
             <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33,333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <img src="{% static 'receitas/img/macarrao.jpg' %}" alt="[Imagem de Macarrão Cremoso com Frango]" class="w-full h-48 object-cover rounded-md mb-4">
+                <img src="{% static 'receitas/img/macarrao.jpg' %}" alt="[Imagem de Macarrão Cremoso com Frango]" class="w-full h-64 object-cover rounded-md mb-4">
                 <h3 class="text-xl font-bold mb-2 text-gray-800">Macarrão Cremoso com Frango 🍝🐔🧀</h3>
                 <p class="text-gray-600 mb-4">Um prato rápido, saboroso e reconfortante. A combinação do frango suculento com o molho cremoso transforma o macarrão simples em uma refeição completa, perfeita para o almoço ou jantar do dia a dia.</p>
                 <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
             </div>
 
-            <!-- Receita 3 -->
             <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33,333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <img src="{% static 'receitas/img/brigadeiro.jpg' %}" alt="[Imagem de Brigadeiro de Colher]" class="w-full h-48 object-cover rounded-md mb-4">
+                <img src="{% static 'receitas/img/brigadeiro.jpg' %}" alt="[Imagem de Brigadeiro de Colher]" class="w-full h-64 object-cover rounded-md mb-4">
                 <h3 class="text-xl font-bold mb-2 text-gray-800">Brigadeiro de Colher 🍫🥄😋</h3>
                 <p class="text-gray-600 mb-4">Clássico da culinária brasileira, esse doce é feito para quem ama praticidade e muito sabor. Com textura cremosa e chocolate intenso, é ideal para matar aquela vontade de um docinho rápido.</p>
                 <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
             </div>
 
-            <!-- Receita 4 -->
             <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33,333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <img src="{% static 'receitas/img/omelete.jpg' %}" alt="[Imagem de Omelete de Forno]" class="w-full h-48 object-cover rounded-md mb-4">
+                <img src="{% static 'receitas/img/omelete.jpg' %}" alt="[Imagem de Omelete de Forno]" class="w-full h-64 object-cover rounded-md mb-4">
                 <h3 class="text-xl font-bold mb-2 text-gray-800">Omelete de Forno 🍳🔥🧅</h3> 
                 <p class="text-gray-600 mb-4">Uma versão prática e sem fritura da omelete tradicional. Leve, versátil e perfeita para aproveitar sobras da geladeira, essa receita vai bem no café da manhã, lanche ou até como refeição leve.</p>
                 <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
             </div>
 
-            <!-- Receita 5 -->
             <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33,333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <img src="{% static 'receitas/img/bolo.jpg' %}" alt="[Imagem de Bolo de Banana com Aveia]" class="w-full h-48 object-cover rounded-md mb-4">
+                <img src="{% static 'receitas/img/bolo.jpg' %}" alt="[Imagem de Bolo de Banana com Aveia]" class="w-full h-64 object-cover rounded-md mb-4">
                 <h3 class="text-xl font-bold mb-2 text-gray-800">Bolo de Banana com Aveia 🍌🍰🌾</h3>
                 <p class="text-gray-600 mb-4">Um bolo saudável, fofinho e cheio de sabor natural da banana. Ideal para o café da tarde ou um lanche nutritivo, sem farinha branca e com açúcar na medida certa.</p>
                 <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
             </div>
 
-            <!-- Receita 6 -->
             <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33,333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-                <img src="{% static 'receitas/img/vitamina.jpg' %}" alt="[Imagem de Vitamina de Morango com Banana]" class="w-full h-48 object-cover rounded-md mb-4">
+                <img src="{% static 'receitas/img/vitamina.jpg' %}" alt="[Imagem de Vitamina de Morango com Banana]" class="w-full h-64 object-cover rounded-md mb-4">
                 <h3 class="text-xl font-bold mb-2 text-gray-800">Vitamina de Morango com Banana 🍓🍌🥤</h3>
                 <p class="text-gray-600 mb-4">Uma bebida cremosa, nutritiva e refrescante, perfeita para o café da manhã ou pós-treino. Combina o sabor doce da banana com o frescor do morango, tudo batido em segundos.</p>
                 <a href="#" class="text-orange-600 hover:text-orange-800 font-semibold">Ver Receita &rarr;</a>
@@ -111,11 +89,8 @@
     </main>
 
  
-    <!-- Rodapé da Página -->
     <footer class="mt-12 p-6 text-center text-gray-600">
         <p>&copy; 2025 Minhas Receitas. Todos os direitos reservados a Matheus.</p>
     </footer>
 </body>
 </html>
-
- 
