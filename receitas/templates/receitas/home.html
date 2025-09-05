@@ -5,55 +5,44 @@
 
 {% block content %}
 
-  <!-- Campo de pesquisa -->
-  <section class="container mx-auto mt-8 p-4 flex justify-center">
-    <form method="GET" action="{% url 'pesquisar_receitas' %}"
-     class="w-full max-w-lg flex bg-white rounded-full shadow-md overflow-hidden">
-      <input 
-            type="text" 
-            name="q" 
-            placeholder="Pesquisar receitas..." 
-            class="flex-grow p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-l-full pl-5" />
-
-      <button type="submit" 
-          class="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-r-full transition duration-300 ease-in-out flex items-center justify-center">
-        <i class="fas fa-search mr-2"></i> Pesquisar 
-      </button>
-    </form>
-  </section>
-
   <!-- Conteúdo Principal -->
-    <div class="text-center mt-12 mb-12">
-    <h2 class="text-4xl font-extrabold mb-8">🍽️ Bem-vindo ao Sabores da Casa!</h2>
-    <p class="text-xl text-gray-700 mb-4">
+  <div class="text-center mt-12 mb-12">
+    <h2 class="text-4xl font-extrabold mb-8 text-orange-700 drop-shadow">🍽️ Bem-vindo ao Sabores da Casa!</h2>
+    <p class="text-xl text-orange-900 mb-4">
       Seja muito bem-vindo ao Sabores da Casa, o seu portal de receitas práticas, deliciosas e acessíveis para todos os momentos! Aqui você encontra uma seleção especial de pratos que vão desde clássicos da culinária brasileira até opções inovadoras para surpreender no dia a dia. Nosso objetivo é tornar a cozinha um espaço de criatividade, prazer e boas lembranças, seja para quem está começando ou para quem já domina as panelas.
     </p>
-    <p class="text-xl text-gray-700 mb-4">
+    <p class="text-xl text-orange-900 mb-4">
       Navegue por nossas categorias e descubra receitas para café da manhã, almoço, jantar, sobremesas e lanches rápidos. Cada receita é cuidadosamente testada e explicada passo a passo, com dicas para facilitar o preparo e garantir o sucesso do seu prato. Além disso, você pode pesquisar ingredientes, salvar suas favoritas e compartilhar suas experiências com outros apaixonados por gastronomia.
     </p>
-    <p class="text-xl text-gray-700 mb-4">
+    <p class="text-xl text-orange-900 mb-4">
       No Sabores da Casa, acreditamos que cozinhar é uma forma de demonstrar carinho e criar memórias afetivas. Por isso, estamos sempre atualizando nosso acervo com novidades, receitas sazonais e sugestões para ocasiões especiais. Sinta-se à vontade para explorar, experimentar e deixar seu comentário – sua participação é muito importante para nós!
     </p>
-    <p class="mt-6 text-2xl text-orange-600 font-semibold">"Do nosso fogão para o seu coração."</p>
+    <p class="mt-6 text-2xl text-orange-600 font-semibold drop-shadow">"Do nosso fogão para o seu coração."</p>
   </div>
-</section>
-  <div class="flex flex-wrap justify-center gap-6">
-    {% for receita in receitas %}
-      <div class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-        {% if receita.image %}`
 
-          <img src="{{ receita.image.url }}" alt="Imagem de {{ receita.title }}" class="w-full h-48 object-cover rounded-md mb-4">
-        {% endif %}
-        <h3 class="text-xl font-bold mb-2 text-gray-800">{{ receita.title }}</h3>
-        <p class="text-gray-600 mb-4">{{ receita.description|truncatewords:20 }}</p>
-
-        <a href="{% url 'receita_detail' receita.id %}" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300">
-          Ver Receita &rarr;
+  <div class="text-center mt-12 mb-12">
+    <h2 class="text-4xl font-extrabold mb-8 text-orange-700 drop-shadow">Confira nossas receitas</h2>
+    <p class="text-xl text-orange-900 mb-10">Escolha uma categoria para explorar delícias preparadas com carinho!</p>
+    <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+        <!-- Categoria Doces -->
+        <a href="{% url 'categoria_receitas' 'doces' %}" class="w-64 bg-gradient-to-br from-yellow-200 via-orange-100 to-orange-200 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-8 flex flex-col items-center group hover:scale-105">
+            <i class="fas fa-ice-cream text-5xl text-orange-400 mb-4 drop-shadow"></i>
+            <span class="text-2xl font-bold text-orange-700 mb-2">Doces</span>
+            <span class="text-orange-600 text-center">Sobremesas, bolos e mais para adoçar seu dia!</span>
         </a>
-      </div>
-    {% empty %}
-      <p class="text-center text-gray-500 col-span-full">Nenhuma receita encontrada.</p>
-    {% endfor %}
+        <!-- Categoria Salgadas -->
+        <a href="{% url 'categoria_receitas' 'salgadas' %}" class="w-64 bg-gradient-to-br from-yellow-200 via-orange-100 to-orange-200 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-8 flex flex-col items-center group hover:scale-105">
+            <i class="fas fa-utensils text-5xl text-orange-400 mb-4 drop-shadow"></i>
+            <span class="text-2xl font-bold text-orange-700 mb-2">Salgadas</span>
+            <span class="text-orange-600 text-center">Pratos principais, lanches, massas e muito mais!</span>
+        </a>
+        <!-- Categoria Bebidas -->
+        <a href="{% url 'categoria_receitas' 'bebidas' %}" class="w-64 bg-gradient-to-br from-yellow-200 via-orange-100 to-orange-200 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 p-8 flex flex-col items-center group hover:scale-105">
+            <i class="fas fa-coffee text-5xl text-orange-400 mb-4 drop-shadow"></i>
+            <span class="text-2xl font-bold text-orange-700 mb-2">Bebidas</span>
+            <span class="text-orange-600 text-center">Sucos, vitaminas, drinks e refrescos especiais!</span>
+        </a>
+    </div>
   </div>
-
+  
 {% endblock %}
