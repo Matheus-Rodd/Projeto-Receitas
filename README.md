@@ -29,25 +29,24 @@ O projeto foi criado com foco em aprendizado e boas práticas, mas também pode 
 ### 1️⃣ Clone o repositório
 ```bash
 git clone https://github.com/Matheus-Rodd/Projeto-Receitas.git
+
 2️⃣ Acesse a pasta do projeto
-
 cd Projeto-Receitas
-3️⃣ Crie e ative um ambiente virtual
 
+3️⃣ Crie e ative um ambiente virtual
 python -m venv venv
 venv\Scripts\activate   # Windows
 source venv/bin/activate # Linux/Mac
-4️⃣ Instale as dependências
 
+4️⃣ Instale as dependências
 pip install -r requirements.txt
 (se o arquivo requirements.txt ainda não existir, podemos gerar com pip freeze > requirements.txt)
 
 5️⃣ Realize as migrações
-
 python manage.py makemigrations
 python manage.py migrate
-6️⃣ Execute o servidor
 
+6️⃣ Execute o servidor
 python manage.py runserver
 Acesse em: http://127.0.0.1:8000/
 
