@@ -1,33 +1,84 @@
 {% extends 'receitas/base.html' %}
+{% load form_tags %}
+
 {% block title %}Contato - Sabores da Casa{% endblock %}
 
 {% block content %}
 <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-10 mt-10 mb-10">
     <h2 class="text-4xl font-extrabold mb-6 text-orange-700 drop-shadow text-center">Fale Conosco</h2>
     <p class="text-lg text-orange-900 mb-8 text-center">
-        Tem dúvidas, sugestões, elogios ou quer compartilhar sua receita com a gente? Preencha o formulário abaixo ou envie um e-mail para <a href="mailto:contato@saboresdacasa.com" class="text-orange-600 underline">contato@saboresdacasa.com</a>. Adoramos ouvir nossos visitantes!
+        Tem dúvidas, sugestões, elogios ou quer compartilhar sua receita com a gente? Preencha o formulário abaixo ou
+        envie um e-mail para
+        <a href="mailto:contato@saboresdacasa.com" class="text-orange-600 underline">contato@saboresdacasa.com</a>.
+        Adoramos ouvir nossos visitantes!
     </p>
-    <form class="space-y-6">
+
+    {% if messages %}
+    <ul class="mb-6">
+        {% for message in messages %}
+        <li class="text-center font-semibold {% if message.tags == 'error' %}text-red-600{% else %}text-green-600{% endif %}">
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="post" class="space-y-6" novalidate id="contatoForm">
+        {% csrf_token %}
         <div>
-            <label for="nome" class="block text-orange-700 font-semibold mb-2">Nome</label>
-            <input type="text" id="nome" name="nome" class="w-full p-3 rounded-lg border border-orange-200 focus:ring-2 focus:ring-orange-400 focus:outline-none bg-orange-50" placeholder="Seu nome">
+            <label class="block text-orange-700 font-semibold mb-2" for="{{ form.nome.id_for_label }}">Nome</label>
+            {{ form.nome|add_class:"w-full p-3 rounded-lg border border-orange-200 focus:ring-2 focus:ring-orange-400 focus:outline-none bg-orange-50" }}
+            {% if form.nome.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ form.nome.errors.0 }}</p>
+            {% endif %}
         </div>
+
         <div>
-            <label for="email" class="block text-orange-700 font-semibold mb-2">E-mail</label>
-            <input type="email" id="email" name="email" class="w-full p-3 rounded-lg border border-orange-200 focus:ring-2 focus:ring-orange-400 focus:outline-none bg-orange-50" placeholder="seu@email.com">
+            <label class="block text-orange-700 font-semibold mb-2" for="{{ form.email.id_for_label }}">E-mail</label>
+            {{ form.email|add_class:"w-full p-3 rounded-lg border border-orange-200 focus:ring-2 focus:ring-orange-400 focus:outline-none bg-orange-50" }}
+            {% if form.email.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ form.email.errors.0 }}</p>
+            {% endif %}
         </div>
+
         <div>
-            <label for="mensagem" class="block text-orange-700 font-semibold mb-2">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="5" class="w-full p-3 rounded-lg border border-orange-200 focus:ring-2 focus:ring-orange-400 focus:outline-none bg-orange-50" placeholder="Escreva sua mensagem aqui..."></textarea>
+            <label class="block text-orange-700 font-semibold mb-2" for="{{ form.mensagem.id_for_label }}">Mensagem</label>
+            {{ form.mensagem|add_class:"w-full p-3 rounded-lg border border-orange-200 focus:ring-2 focus:ring-orange-400 focus:outline-none bg-orange-50" }}
+            {% if form.mensagem.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ form.mensagem.errors.0 }}</p>
+            {% endif %}
         </div>
+
         <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out">
             Enviar mensagem
         </button>
     </form>
+
     <p class="text-center text-orange-600 mt-8">
         Ou, se preferir, nos acompanhe nas redes sociais:<br>
         <a href="#" class="mx-2 hover:text-orange-800"><i class="fab fa-instagram"></i> Instagram</a>
         <a href="#" class="mx-2 hover:text-orange-800"><i class="fab fa-facebook"></i> Facebook</a>
     </p>
 </div>
+
+<script>
+const form = document.getElementById('contatoForm');
+const campos = ['id_nome', 'id_email', 'id_mensagem'];
+
+form.addEventListener('submit', function(e) {
+    let valid = true;
+    campos.forEach(id => {
+        const field = document.getElementById(id);
+        field.classList.remove('border-red-600');
+        if (!field.value.trim()) {
+            valid = false;
+            field.classList.add('border-red-600');
+        }
+    });
+    if (!valid) {
+        e.preventDefault();
+        alert('⚠️ Preencha todos os campos antes de enviar.');
+    }
+});
+</script>
 {% endblock %}
